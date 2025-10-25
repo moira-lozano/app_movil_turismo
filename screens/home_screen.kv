@@ -1,0 +1,19 @@
+<HomeScreen>:
+    name: 'home'
+    md_bg_color: 0, .5, .5, 1
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: '20dp'
+        padding: '50dp'
+
+        MDLabel:
+            text: 'Bienvenido a la App de Turismo'
+            halign: 'center'
+            font_style: 'H5'
+
+        MDFillRoundFlatButton:
+            text: 'Ir a la pantalla principal'
+            pos_hint: {'center_x': .5}
+            on_release:
+                app.root.current = 'screen_principal'  # ✅ nombre real de la otra pantalla
