@@ -1,5 +1,3 @@
-from tkinter.font import names
-
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
@@ -33,17 +31,23 @@ class MainApp(MDApp):
         # Importar pantallas
         from screens.home_screen import HomeScreen
         from screens.main_screen import MainScreen
-        from screens.historia_camiri import HistoriaCamiriScreen
+        from screens.Camiri.historia_camiri import HistoriaCamiriScreen
+        from screens.Camiri.eventos_camiri import EventoCamiriScreen
+        from screens.Camiri.turismo_camiri import TurismoCamiriScreen
 
         # Cargar archivos .kv asociados
         Builder.load_file('home_screen.kv')
         Builder.load_file('main_screen.kv')
-        Builder.load_file('historia_camiri.kv')
+        Builder.load_file('Camiri/historia_camiri.kv')
+        Builder.load_file('Camiri/eventos_camiri.kv')
+        Builder.load_file('Camiri/turismo_camiri.kv')
 
         # Añadir pantallas
         self.sm.add_widget(HomeScreen(name='home'))
         self.sm.add_widget(MainScreen(name='main'))
         self.sm.add_widget(HistoriaCamiriScreen(name='historia_camiri'))
+        self.sm.add_widget(EventoCamiriScreen(name='eventos_camiri'))
+        self.sm.add_widget(TurismoCamiriScreen(name='turismo_camiri'))
 
         # Mostrar la primera pantalla
         self.sm.current = 'home'

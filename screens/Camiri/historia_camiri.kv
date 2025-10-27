@@ -1,0 +1,90 @@
+<HistoriaCamiriScreen>
+    name: 'historia_camiri'
+    md_bg_color: 0.15, 0.15, 0.18, 1  # Fondo oscuro más elegante
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: '20dp'
+        spacing: '20dp'
+
+        # Título principal
+        MDLabel:
+            text: 'Breve Historia'
+            halign: 'center'
+            font_style: 'H4'
+            size_hint_y: None
+            height: '60dp'
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+
+        # ScrollView para el contenido
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                padding: '10dp'
+
+                # Card con la historia
+                MDCard:
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    width: root.width - 60
+                    height: self.minimum_height
+                    pos_hint: {'center_x': 0.5}
+                    padding: '25dp'
+                    spacing: '15dp'
+                    elevation: 8
+                    radius: [20, 20, 20, 20]
+                    md_bg_color: 0.95, 0.95, 0.97, 1  # Fondo claro para el card
+
+                    # Contenido del card
+                    MDLabel:
+                        text: 'Historia de Camiri'
+                        halign: 'center'
+                        font_style: 'H6'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        theme_text_color: "Custom"
+                        text_color: 0.2, 0.6, 0.8, 1  # Azul elegante
+                        bold: True
+
+                    # Línea decorativa
+                    MDSeparator:
+                        height: '2dp'
+                        color: 0.2, 0.6, 0.8, 0.3
+
+                    # Texto de la historia
+                    MDLabel:
+                        text: 'La ciudad de Camiri fue fundada el 12 de Julio de 1935, por decreto presidencial del Cnl. David Toro. Se encuentra situada al Sudeste de nuestro país, en el departamento de Santa Cruz, provincia Cordillera, a los pies de la serranía del Sararenda, la que forma parte de la Serranía del Aguarague, que a su vez forma parte del macizo Andino.\n\nLimita al norte con el Río Grande, al Sur con el Río Bermejo, al Este con el Paraguay y al Oeste con las Serranías del Aguarague. Se encuentra entre los 1100 - 1200 m. sobre el nivel del mar.\n\n[b]Capital Petrolera[/b]\n\nCamiri es declarada Capital Petrolera de la República de Bolivia el 12 de Julio de 1970, bajo la presidencia del Gral. Alfredo Ovando Candia. Fue concebida en base a campamentos petroleros a partir de la concesión de introspección y explotación a la Standard Oil a partir de 1921.\n\n[b]Orígenes[/b]\n\nAntiguamente este lugar era conocido en la lengua Guaraní como Isipoti, que significa "monte bajo". Si bien Camiri es conocido por su actividad petrolera recién a partir de la década de los años 20, algunos historiadores reivindican la importancia del lugar a antiguos asentamientos guaraníes y chiriguanos de los cuales se tienen datos a partir de 1758.\n\n[b]Desarrollo Municipal[/b]\n\nComo capital de la 6ta. Sección municipal de Santa Cruz a partir del 20 de Noviembre de 1940 con sus cantones Alto Camiri, Choreti, Yapiroa y Yoobi, el asentamiento poblacional más importante se da poco después de la llegada de la empresa petrolera Standard Oil.\n\nHoy en día Camiri es Capital de la Tercera sección de la provincia Cordillera. Por Ley del 18 de Octubre de 1945, dictada bajo la presidencia de Gualberto Villarroel, se declara de propiedad municipal las 300 hectáreas expropiadas y se autoriza su venta a los antiguos habitantes.\n\n[b]Atractivos[/b]\n\nEn la entrada principal se encuentra la primera "bomba de petróleo", tiene una hermosa plaza denominada 12 de Julio y un monumento al soldado desconocido. El río Parapetí que bordea la ciudad fertiliza sus alrededores de tupida floresta con un excelente clima cálido y una altura media de 800 m.s.n.m.'
+                        markup: True
+                        halign: 'left'
+                        valign: 'top'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        padding: ['10dp', '10dp']
+                        theme_text_color: "Custom"
+                        text_color: 0.2, 0.2, 0.2, 1
+                        font_size: '15sp'
+                        line_height: 1.6
+
+        # Botón de regreso
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: '70dp'
+            padding: ['0dp', '10dp', '0dp', '10dp']
+
+            MDFillRoundFlatButton:
+                text: 'Volver al inicio'
+                size_hint: None, None
+                width: '200dp'
+                height: '50dp'
+                pos_hint: {'center_x': 0.5}
+                md_bg_color: 0.2, 0.6, 0.8, 1
+                text_color: 1, 1, 1, 1
+                on_release:
+                    app.root.current = 'home'
