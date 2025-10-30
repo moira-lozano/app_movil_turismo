@@ -1,19 +1,140 @@
 <HomeScreen>:
     name: 'home'
-    md_bg_color: 0, .5, .5, 1
+    md_bg_color: 0.05, 0.15, 0.25, 1  # Azul oscuro elegante
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        spacing: '20dp'
-        padding: '50dp'
+    FloatLayout:
+        # Degradado de fondo (simulado con rectángulos)
+        canvas.before:
+            Color:
+                rgba: 0.1, 0.3, 0.5, 1
+            Rectangle:
+                pos: self.pos
+                size: self.width, self.height * 0.6
+            Color:
+                rgba: 0.05, 0.15, 0.25, 1
+            Rectangle:
+                pos: self.x, self.y
+                size: self.width, self.height * 0.4
 
-        MDLabel:
-            text: 'Bienvenido a la App de Turismo'
-            halign: 'center'
-            font_style: 'H5'
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: '30dp'
+            spacing: '0dp'
 
-        MDFillRoundFlatButton:
-            text: 'Ir a la pantalla principal'
-            pos_hint: {'center_x': .5}
-            on_release:
-                app.root.current = 'screen_principal'  # ✅ nombre real de la otra pantalla
+            # Espaciador superior
+            Widget:
+                size_hint_y: 0.15
+
+            # Logo o ícono (puedes reemplazar con una imagen)
+            MDIconButton:
+                icon: 'map-marker-radius'
+                icon_size: '120sp'
+                pos_hint: {'center_x': 0.5}
+                theme_text_color: "Custom"
+                text_color: 1, 0.85, 0.3, 1  # Dorado
+                size_hint: None, None
+                size: '120dp', '120dp'
+
+            Widget:
+                size_hint_y: 0.05
+
+            # Título principal
+            MDLabel:
+                text: 'Bienvenido'
+                halign: 'center'
+                font_style: 'H3'
+                size_hint_y: None
+                height: '60dp'
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                bold: True
+
+            # Subtítulo
+            MDLabel:
+                text: 'Descubre los tesoros de Bolivia'
+                halign: 'center'
+                font_style: 'H6'
+                size_hint_y: None
+                height: '40dp'
+                theme_text_color: "Custom"
+                text_color: 0.9, 0.9, 0.9, 0.8
+
+            Widget:
+                size_hint_y: 0.08
+
+            # Card con descripción
+            MDCard:
+                orientation: 'vertical'
+                size_hint: None, None
+                width: root.width - 80
+                height: '140dp'
+                pos_hint: {'center_x': 0.5}
+                padding: '20dp'
+                spacing: '10dp'
+                elevation: 10
+                radius: [25, 25, 25, 25]
+                md_bg_color: 1, 1, 1, 0.95
+
+                MDLabel:
+                    text: '🗺️  Explora destinos increíbles'
+                    halign: 'left'
+                    font_size: '16sp'
+                    size_hint_y: None
+                    height: '30dp'
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.2, 0.2, 1
+
+                MDLabel:
+                    text: '📸  Conoce su historia y cultura'
+                    halign: 'left'
+                    font_size: '16sp'
+                    size_hint_y: None
+                    height: '30dp'
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.2, 0.2, 1
+
+                MDLabel:
+                    text: '🎯  Encuentra lugares turísticos'
+                    halign: 'left'
+                    font_size: '16sp'
+                    size_hint_y: None
+                    height: '30dp'
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.2, 0.2, 1
+
+            Widget:
+                size_hint_y: 0.1
+
+            # Botón principal atractivo
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, None
+                height: '120dp'
+                spacing: '15dp'
+                padding: ['40dp', '0dp', '40dp', '0dp']
+
+                MDRaisedButton:
+                    text: 'Comenzar la aventura'
+                    size_hint: 1, None
+                    height: '56dp'
+                    md_bg_color: 1, 0.85, 0.3, 1  # Dorado
+                    theme_text_color: "Custom"
+                    text_color: 0.1, 0.1, 0.1, 1
+                    font_size: '18sp'
+                    elevation: 12
+                    on_release:
+                        app.root.current = 'screen_principal'
+
+                MDLabel:
+                    text: 'Desliza para explorar →'
+                    halign: 'center'
+                    font_size: '14sp'
+                    size_hint_y: None
+                    height: '30dp'
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 0.6
+                    italic: True
+
+            # Espaciador inferior
+            Widget:
+                size_hint_y: 0.1
